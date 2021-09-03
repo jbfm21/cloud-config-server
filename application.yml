@@ -6,3 +6,23 @@ eureka:
        defaultZone: http://localhost:8761/eureka/
   instance:
     hostname: localhost
+    
+management:
+  endpoints:
+    jmx:
+      exposure:
+        include: "health,info"  
+    web:
+      exposure:
+        include: "*"
+        exclude: "env,beans"  
+  info:
+    git:
+      mode: "full"        
+
+info:
+  app:
+    encoding: "@project.build.sourceEncoding@"
+    java:
+      source: "@java.version@"
+      target: "@java.version@"    
