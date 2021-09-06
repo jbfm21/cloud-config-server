@@ -1,1 +1,11 @@
-
+management:
+  endpoints:
+    jmx:
+      exposure:
+        include: "health,info"  
+    web:
+      exposure:
+        include: "*"
+  info:
+    git:
+      mode: "full"
