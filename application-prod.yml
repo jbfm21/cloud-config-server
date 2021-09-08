@@ -6,10 +6,13 @@ management:
     web:
       exposure:
         include: "*"
-        exclude: "env,beans"      
+        exclude: "env,beans"   
+  info:
+    git:
+      mode: "full"
 spring:
   security:
     oauth2:
       resourceserver:
         jwt:
-          issuer-uri: http://localhost:8080/auth/realms/master      
+          issuer-uri: http://localhost:8080/auth/realms/master
