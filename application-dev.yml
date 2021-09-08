@@ -6,7 +6,9 @@ management:
     web:
       exposure:
         include: "*"
-
+  info:
+    git:
+      mode: "full"
 spring:
   security:
     oauth2:
