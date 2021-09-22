@@ -1,4 +1,7 @@
 management:
+  health:
+     circuitbreakers:
+        enabled: true
   endpoints:
     jmx:
       exposure:
@@ -6,7 +9,9 @@ management:
     web:
       exposure:
         include: "*"
-        exclude: "env,beans"   
+  endpoint:
+    health:
+      show-details: always        
   info:
     git:
       mode: "full"
@@ -16,3 +21,30 @@ spring:
       resourceserver:
         jwt:
           issuer-uri: http://localhost:8888/auth/realms/SpringBootKeycloak
+
+resilience4j:
+  circuitbreaker:
+    instances:
+      productService:
+        registerHealthIndicator: true
+        eventConsumerBufferSize: 10
+        automaticTransitionFromOpenToHalfOpenEnabled: true
+        failureRateThreshold: 50
+        minimumNumberOfCalls: 5
+        permittedNumberOfCallsInHalfOpenState: 3
+        slidingWindowSize: 10
+        waitDurationInOpenState: 5s
+        slidingWindowType: COUNT_BASED
+
+logging:
+    level:
+        org:
+            springframework:
+                security: INFO
+                cloud:
+                  gateway: INFO
+                http:
+                  server:
+                    reactive: INFO
+                web:
+                  reactive: INFO      
