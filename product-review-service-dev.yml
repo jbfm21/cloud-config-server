@@ -1,6 +1,7 @@
 debug: true
 resilience4j:
   circuitbreaker:
+    circuitBreakerAspectOrder: 1
     configs:
         default:
             slidingWindowSize: 100
@@ -16,6 +17,7 @@ resilience4j:
         productService:
             baseConfig: default           
   retry:
+    retryAspectOrder: 2
     instances:
         productService:
             maxAttempts: 3
