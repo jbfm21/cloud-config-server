@@ -34,3 +34,5 @@ logging:
                     reactive: INFO
                 web:
                   reactive: INFO      
+                  servlet:
+                      DispatcherServlet: DEBUG                    
