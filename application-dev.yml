@@ -22,7 +22,6 @@ spring:
         jwt:
           issuer-uri: http://localhost:8888/auth/realms/SpringBootKeycloak
 logging:
-    console: "[%user] %d %-5level %logger : %msg%n"
     level:
         org:
             springframework:
