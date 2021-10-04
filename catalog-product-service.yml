@@ -1,4 +1,4 @@
 springdoc:
   packagesToScan: br.gov.bndes.microservice.product.controller
 custom:
-  testeRefresh: valor2
+  testeRefresh: valor1
