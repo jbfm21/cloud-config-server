@@ -16,6 +16,10 @@ management:
     git:
       mode: "full"
 spring:
+  rabbitmq:
+    host: localhost
+    port: 5672
+
   security:
     oauth2:
       resourceserver:
