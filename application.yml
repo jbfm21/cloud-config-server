@@ -2,23 +2,27 @@ spring:
   output:
     ansi:
       enabled: never
-#eureka:
-#  client:
-#     register-with-eureka: true
-#     fetch-registry: true
-#     service-url:
-#       defaultZone: http://localhost:8761/eureka/
-#  instance:
-#    hostname: localhost
+
+#Configuração para rodar local
 eureka:
-  instance:
-    preferIpAddress: true
-    hostname: eureka-0
   client:
-    registerWithEureka: true
-    fetchRegistry: true
-    serviceUrl:
-      defaultZone: http://eureka-0.eureka.default.svc.cluster.local:8761/eureka
+     register-with-eureka: true
+     fetch-registry: true
+     service-url:
+       defaultZone: http://localhost:8761/eureka/
+  instance:
+    hostname: localhost
+
+#Configuração K8S
+#eureka:
+#  instance:
+#    preferIpAddress: true
+#    hostname: eureka-0
+#  client:
+#    registerWithEureka: true
+#    fetchRegistry: true
+#    serviceUrl:
+#      defaultZone: http://eureka-0.eureka.default.svc.cluster.local:8761/eureka
     
 info:
   app:
