@@ -8,7 +8,7 @@ management:
         include: "health,info"  
     web:
       exposure:
-        include: "*"
+        include: "*", openapi, swaggerui
   endpoint:
     health:
       show-details: always        
