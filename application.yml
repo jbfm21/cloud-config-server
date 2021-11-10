@@ -2,6 +2,11 @@ spring:
   output:
     ansi:
       enabled: never
+  cloud:
+    stream:
+      bindings:
+        notificationEventSupplier-out-0:
+          destination: notification-events      
 
 #Configuração para rodar local
 eureka:
