@@ -7,7 +7,9 @@ spring:
       source: notificationEventSupplier
       bindings:
         notificationEventSupplier-out-0:
-          destination: notification-events      
+          destination: notification-events 
+        notificationEventSupplier-in-0:
+          destination: notification-events           
 
 #Configuração para rodar local
 eureka:
