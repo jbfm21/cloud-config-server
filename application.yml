@@ -4,6 +4,7 @@ spring:
       enabled: never
   cloud:
     stream:
+      source: notificationEventSupplier
       bindings:
         notificationEventSupplier-out-0:
           destination: notification-events      
