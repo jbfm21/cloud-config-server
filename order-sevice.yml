@@ -4,4 +4,4 @@ axon:
   eventhandling:
     processors:
       amqpEvents:
-        source: complaintEventsMethod
+        source: complaintOrderEventsMethod
