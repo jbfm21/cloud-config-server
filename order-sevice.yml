@@ -1,7 +1,7 @@
 axon:
   amqp:
     exchange: order.events
-  eventhandling:
-    processors:
-      amqpEvents:
-        source: complaintOrderEventsMethod
+  #eventhandling:
+  #  processors:
+  #    amqpEvents:
+  #      source: complaintOrderEventsMethod
