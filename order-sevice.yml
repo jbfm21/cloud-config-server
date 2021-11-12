@@ -1,6 +1,6 @@
-axon:
-  amqp:
-    exchange: order.events
+#axon:
+  #amqp:
+  #  exchange: order.events
   #eventhandling:
   #  processors:
   #    amqpEvents:
