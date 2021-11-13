@@ -1,0 +1,9 @@
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          springboot-microservice:
+            client-id: springboot-microservice
+            client-secret: 5c36faaa-bb7f-4934-9935-3f0e2ed23d90
+   
