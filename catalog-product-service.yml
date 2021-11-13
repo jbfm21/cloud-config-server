@@ -4,7 +4,7 @@ custom:
   testeRefresh: valor2
 
 spring:
- datasource:
+  datasource:
    url: jdbc:mysql://localhost:3306/microservice-db
    driverClassName: com.mysql.cj.jdbc.Driver
   jpa:

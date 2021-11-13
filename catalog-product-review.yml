@@ -2,7 +2,7 @@ springdoc:
   packagesToScan: br.com.example.microservice.productreview.controller
 
 spring:
- datasource:
+  datasource:
    url: jdbc:mysql://localhost:3306/microservice-db
    driverClassName: com.mysql.cj.jdbc.Driver
   jpa:
