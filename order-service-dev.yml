@@ -5,8 +5,15 @@ spring:
       hibernate:
         show_sql: false
         format_sql: false
+  datasource:
+   username: sa
+   password: pass
+        
 logging:
   level:
     org:
       hibernate:
         type: info
+        SQL: info
+        
+        

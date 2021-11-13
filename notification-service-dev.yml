@@ -1,12 +1,1 @@
 debug: false
-spring:
-  jpa:
-    properties:
-      hibernate:
-        show_sql: false
-        format_sql: false
-logging:
-  level:
-    org:
-      hibernate:
-        type: info
