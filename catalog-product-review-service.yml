@@ -3,7 +3,7 @@ springdoc:
 
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/microservice-db
+    url: jdbc:mysql://localhost:3306/microservice_db
     driverClassName: com.mysql.cj.jdbc.Driver
   jpa:
     database: mysql
