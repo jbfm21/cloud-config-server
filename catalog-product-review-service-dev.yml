@@ -1,4 +1,19 @@
 debug: true
+spring:
+  jpa:
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+ datasource:
+   username: sa
+   password: pass
+logging:
+  level:
+    org:
+      hibernate:
+        type: info
+        SQL: info
 resilience4j:
   circuitbreaker:
     circuitBreakerAspectOrder: 1

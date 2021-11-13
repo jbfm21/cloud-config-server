@@ -1,4 +1,19 @@
 springdoc:
-  packagesToScan: br.gov.bndes.microservice.product.controller
+  packagesToScan: br.com.example.microservice.product
 custom:
   testeRefresh: valor2
+
+spring:
+ datasource:
+   url: jdbc:mysql://localhost:3306/microservice-db
+   driverClassName: com.mysql.cj.jdbc.Driver
+  jpa:
+    database: mysql
+    hibernate:
+      ddl-auto: update
+      use-new-id-generator-mappings: false      
+    show-sql: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+        ddl-auto: update 
