@@ -1,0 +1,89 @@
+debug: false
+spring:
+  jpa:
+    properties:
+      hibernate:
+        show_sql: false
+        format_sql: false
+  datasource:
+   username: sa
+   password: pass
+        
+logging:
+  level:
+    org:
+      hibernate:
+        type: info
+        SQL: info
+    #enable feing log debug        
+    br:
+      com:
+        example:
+           microservice:
+             order:
+               #to enble feing debug change to debug
+               client: info
+        
+        
+resilience4j:
+  circuitbreaker:
+    circuitBreakerAspectOrder: 1
+    configs:
+        default:
+            slidingWindowSize: 100
+            permittedNumberOfCallsInHalfOpenState: 10
+            waitDurationInOpenState: 10000
+            failureRateThreshold: 60
+            eventConsumerBufferSize: 10
+            registerHealthIndicator: true
+        someShared:
+            slidingWindowSize: 50
+            permittedNumberOfCallsInHalfOpenState: 10
+    instances:
+        productService:
+            baseConfig: default           
+  retry:
+    retryAspectOrder: 2
+    instances:
+        productService:
+            maxAttempts: 3
+            waitDuration: 10s
+            enableExponentialBackoff: true
+            exponentialBackoffMultiplier: 2
+            retryExceptions:
+                - org.springframework.web.client.HttpServerErrorException
+                - java.io.IOException
+  bulkhead:
+    instances:
+        productService:
+            maxWaitDuration: 10ms
+            maxConcurrentCalls: 20           
+  thread-pool-bulkhead:
+    instances:
+        productService:
+            maxThreadPoolSize: 1
+            coreThreadPoolSize: 1
+            queueCapacity: 1
+  ratelimiter:
+    instances:
+        productService:
+            limitForPeriod: 10
+            limitRefreshPeriod: 1s
+            registerHealthIndicator: true
+            eventConsumerBufferSize: 100
+            timeoutDuration: 3s
+  timelimiter:
+    instances:
+        productService:
+            timeoutDuration: 2s
+            cancelRunningFuture: true        
+        
+        
+feign:
+    client:
+        config:
+           default:
+              connectTimeout: 5000
+              readTimeout: 5000
+              #to enable feing debug you need to enable debug in your feing client package
+              loggerLevel: full
