@@ -21,7 +21,8 @@ logging:
         example:
            microservice:
              order:
-               client: debug
+               #to enble feing debug change to debug
+               client: info
         
         
 resilience4j:
@@ -84,4 +85,5 @@ feign:
            default:
               connectTimeout: 5000
               readTimeout: 5000
+              #to enable feing debug you need to enable debug in your feing client package
               loggerLevel: full
