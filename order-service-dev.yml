@@ -15,6 +15,15 @@ logging:
       hibernate:
         type: info
         SQL: info
+    #enable feing log debug        
+    br:
+      com:
+        example:
+           microservice:
+             order:
+               client: debug
+        
+        
 resilience4j:
   circuitbreaker:
     circuitBreakerAspectOrder: 1
