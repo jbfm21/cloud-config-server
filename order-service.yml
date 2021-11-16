@@ -46,15 +46,16 @@ axon:
     general: jackson
     messages: jackson
     
-  #amqp:
-  #  exchange: order.events
-  #  transaction-mode: transactional
-  #eventhandling:
-  #  processors:
-  #    amqpEvents:
-  #      source: rabbitMQSpringAMQPMessageSource    
-  #      mode: subscribing    
-#  axonserver:
+  amqp:
+    exchange: shop.events
+    queue: order.service
+    transaction-mode: transactional
+  eventhandling:
+    processors:
+      amqpEvents:
+        source: rabbitMQSpringAMQPMessageSource    
+        mode: subscribing    
+ # axonserver:
 #    servers: ${vcap.services.AxonServer.credentials.uri:localhost}
 
 

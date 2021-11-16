@@ -36,23 +36,3 @@ spring:
       hibernate:
         dialect: org.hibernate.dialect.MySQL8Dialect
         ddl-auto: update 
-
-axon:
-  aggregate:
-    order:
-       snapshot-threshold: 3
-  serializer:
-    events: jackson
-  amqp:
-    exchange: order.events
-    transaction-mode: transactional
-  eventhandling:
-    processors:
-      amqpEvents:
-        source: rabbitMQSpringAMQPMessageSource    
-        mode: subscribing    
-#  axonserver:
-#    servers: ${vcap.services.AxonServer.credentials.uri:localhost}
-
-
-    
