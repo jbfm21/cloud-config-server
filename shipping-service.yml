@@ -43,6 +43,9 @@ axon:
        snapshot-threshold: 3
   serializer:
     events: jackson
+    general: jackson
+    messages: jackson
+    
   #amqp:
   #  exchange: order.events
   #  transaction-mode: transactional
