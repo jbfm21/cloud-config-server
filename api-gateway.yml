@@ -14,10 +14,6 @@ spring:
                - Path=/product-reviews/**
              filters:
                - RemoveRequestHeader=Cookie
-               #- name: CircuitBreaker
-               #  args:
-               #    name: bookService
-               #    fallbackUri: forward:/book-fallback
                - name: Retry
                  args:
                    retries: 3
@@ -31,10 +27,6 @@ spring:
                - Path=/products/**
              filters:
                 - RemoveRequestHeader=Cookie
-                #- name: CircuitBreaker
-                #  args:
-                #   name: bookService
-                #   fallbackUri: forward:/book-fallback
                 - name: Retry
                   args:
                    retries: 3
@@ -42,7 +34,59 @@ spring:
                    backoff:
                     firstBackoff: 50ms
                     maxBackoff: 500ms               
-                
+           - id: order-service
+             uri: lb://order-service
+             predicates:
+               - Path=/orders/**
+             filters:
+               - RemoveRequestHeader=Cookie
+               - name: Retry
+                 args:
+                   retries: 3
+                   method: GET
+                   backoff:
+                    firstBackoff: 50ms
+                    maxBackoff: 500ms               
+           - id: payment-service
+             uri: lb://payment-service
+             predicates:
+               - Path=/payments/**
+             filters:
+               - RemoveRequestHeader=Cookie
+               - name: Retry
+                 args:
+                   retries: 3
+                   method: GET
+                   backoff:
+                    firstBackoff: 50ms
+                    maxBackoff: 500ms               
+           - id: shipping-service
+             uri: lb://shipping-service
+             predicates:
+               - Path=/shippings/**
+             filters:
+               - RemoveRequestHeader=Cookie
+               - name: Retry
+                 args:
+                   retries: 3
+                   method: GET
+                   backoff:
+                    firstBackoff: 50ms
+                    maxBackoff: 500ms               
+           - id: user-service
+             uri: lb://user-service
+             predicates:
+               - Path=/users/**
+             filters:
+               - RemoveRequestHeader=Cookie
+               - name: Retry
+                 args:
+                   retries: 3
+                   method: GET
+                   backoff:
+                    firstBackoff: 50ms
+                    maxBackoff: 500ms               
+
            - id: openapi
              uri: 'http://localhost:${server.port}'
              predicates:
